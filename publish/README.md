@@ -15,5 +15,8 @@ Install on all clients and on the server (modding [guide](https://youtu.be/L9ljm
 
 # Changelog
 
+- v1.1
+	- Update for Mistlands PTB.
+
 - v1.0
 	- Initial release.

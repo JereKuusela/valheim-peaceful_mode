@@ -11,7 +11,7 @@ public class PeacefulMode : BaseUnityPlugin
 {
   const string GUID = "peaceful_mode";
   const string NAME = "Peaceful Mode";
-  const string VERSION = "1.0";
+  const string VERSION = "1.1";
 #nullable disable
   public static ConfigEntry<bool> allowHunting;
 #nullable enable
@@ -42,7 +42,7 @@ public class PeacefulMode : BaseUnityPlugin
 
   static bool IsIgnored(MonoBehaviour obj) => allowHunting.Value && obj.GetComponent<AnimalAI>();
 
-  [HarmonyPatch(typeof(BaseAI), nameof(BaseAI.IsEnemy)), HarmonyPostfix]
+  [HarmonyPatch(typeof(BaseAI), nameof(BaseAI.IsEnemy), typeof(Character), typeof(Character)), HarmonyPostfix]
   static bool NoAggro1(bool result, Character a, Character b) => (IsIgnored(a) || IsIgnored(b)) ? result : false;
 
   [HarmonyPatch(typeof(MonsterAI), nameof(MonsterAI.UpdateTarget)), HarmonyPrefix]
