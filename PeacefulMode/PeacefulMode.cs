@@ -11,7 +11,7 @@ public class PeacefulMode : BaseUnityPlugin
 {
   const string GUID = "peaceful_mode";
   const string NAME = "Peaceful Mode";
-  const string VERSION = "1.1";
+  const string VERSION = "1.2";
 #nullable disable
   public static ConfigEntry<bool> allowHunting;
 #nullable enable

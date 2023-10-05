@@ -1,9 +1,9 @@
 {
   "name": "Peaceful_Mode",
-  "version_number": "1.1.0",
+  "version_number": "1.2.0",
   "website_url": "https://github.com/JereKuusela/valheim-peaceful_mode",
   "description": "No fighting, creatures can be looted by interacting.",
   "dependencies": [
-    "denikson-BepInExPack_Valheim-5.4.1901"
+    "denikson-BepInExPack_Valheim-5.4.2200"
   ]
 }
