@@ -11,11 +11,11 @@ public class PeacefulMode : BaseUnityPlugin
 {
   const string GUID = "peaceful_mode";
   const string NAME = "Peaceful Mode";
-  const string VERSION = "1.2";
+  const string VERSION = "1.3";
 #nullable disable
   public static ConfigEntry<bool> allowHunting;
 #nullable enable
-  public static ServerSync.ConfigSync ConfigSync = new(GUID)
+  public static ConfigSync ConfigSync = new(GUID)
   {
     DisplayName = NAME,
     CurrentVersion = VERSION,
@@ -60,7 +60,7 @@ public class PeacefulMode : BaseUnityPlugin
     if (__instance.GetComponent<Pickable>()) return;
     if (IsIgnored(__instance)) return;
     var p = __instance.gameObject.AddComponent<Pickable>();
-    p.m_respawnTimeMinutes = 30;
+    p.m_respawnTimeMinutes = 30f;
   }
 
   [HarmonyPatch(typeof(Pickable), nameof(Pickable.GetHoverName)), HarmonyPrefix]

@@ -1,6 +1,6 @@
 {
   "name": "Peaceful_Mode",
-  "version_number": "1.2.0",
+  "version_number": "1.3.0",
   "website_url": "https://github.com/JereKuusela/valheim-peaceful_mode",
   "description": "No fighting, creatures can be looted by interacting.",
   "dependencies": [
