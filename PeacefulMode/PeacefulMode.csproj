@@ -2,17 +2,9 @@
   <PropertyGroup>
     <TargetFramework>net4.8</TargetFramework>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>latest</LangVersion>
-    <nullable>enable</nullable>
-    <DoILRepack>false</DoILRepack>
+    <LangVersion>preview</LangVersion>
+    <Nullable>enable</Nullable>
   </PropertyGroup>
-  <Target Name="ILRepacker" AfterTargets="Build" >
-      <ItemGroup>
-          <InputAssemblies Include="$(TargetPath)" />
-          <InputAssemblies Include="$(LibsDir)\ServerSync.dll" />
-      </ItemGroup>
-      <ILRepack Parallel="true" Internalize="true" InputAssemblies="@(InputAssemblies)" TargetKind="Dll" OutputFile="$(TargetPath)" />
-  </Target>
   <Target Name="CopyDLL" AfterTargets="ILRepacker">
     <Copy
       SourceFiles="$(TargetDir)$(ProjectName).dll"
@@ -56,6 +48,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ILRepack.Lib.MSBuild" Version="2.1.18" />
+    <PackageReference Include="ILRepack.Lib.MSBuild.Task" Version="2.0.46" />
   </ItemGroup>
 </Project>

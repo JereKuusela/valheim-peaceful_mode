@@ -5,13 +5,14 @@ using ServerSync;
 using UnityEngine;
 
 namespace PeacefulMode;
+
 [HarmonyPatch]
 [BepInPlugin(GUID, NAME, VERSION)]
 public class PeacefulMode : BaseUnityPlugin
 {
-  const string GUID = "peaceful_mode";
-  const string NAME = "Peaceful Mode";
-  const string VERSION = "1.3";
+  public const string GUID = "peaceful_mode";
+  public const string NAME = "Peaceful Mode";
+  public const string VERSION = "1.4";
 #nullable disable
   public static ConfigEntry<bool> allowHunting;
 #nullable enable
@@ -87,8 +88,8 @@ public class PeacefulMode : BaseUnityPlugin
     if (!__instance.TryGetComponent<CharacterDrop>(out var drop)) return true;
     if (!__instance.m_nview.IsOwner()) return true;
     if (__instance.m_picked) return true;
-    CharacterDrop.DropItems(drop.GenerateDropList(), __instance.transform.position, 1f);
-    __instance.m_nview.InvokeRPC(ZNetView.Everybody, "SetPicked", new object[] { true });
+    CharacterDrop.DropItems(drop.GenerateDropList(), __instance.transform.position, 1f, false);
+    __instance.m_nview.InvokeRPC(ZNetView.Everybody, "SetPicked", [true]);
     return false;
   }
   [HarmonyPatch(typeof(Tameable), nameof(Tameable.Interact)), HarmonyPrefix]
